@@ -9,12 +9,15 @@ const errorTxt = document.querySelector('.error__text')
 const getPhotos = () => {
 	const apiLink = 'https://api.unsplash.com/photos?'
 	const apiClientParam = 'client_id='
-	const apiKey = ''
+	const apiKey = 'YOUR_API_KEY'
+	const pageApiParam = '&page='
+	const page = 2
 	const perPageApiParam = '&per_page='
 	const perPage = 4
 	const orderByApiParam = '&order_by='
 	const orderBy = 'latest'
-	const apiUrl = apiLink + apiClientParam + apiKey + perPageApiParam + perPage + orderByApiParam + orderBy
+	const apiUrl =
+		apiLink + apiClientParam + apiKey + pageApiParam + page + perPageApiParam + perPage + orderByApiParam + orderBy
 
 	axios
 		.get(apiUrl)
