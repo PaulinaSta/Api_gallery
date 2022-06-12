@@ -9,7 +9,7 @@ const errorTxt = document.querySelector('.error__text')
 const getPhotos = () => {
 	const apiLink = 'https://api.unsplash.com/photos?'
 	const apiClientParam = 'client_id='
-	const apiKey = '6zNTNvrXNszNVT457k92L3pMaCHtuI1rqZ_fOa3gMGs'
+	const apiKey = ''
 	const perPageApiParam = '&per_page='
 	const perPage = 4
 	const orderByApiParam = '&order_by='
