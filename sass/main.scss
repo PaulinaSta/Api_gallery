@@ -27,6 +27,26 @@ body {
 	padding: 4em 1em;
 	width: 100%;
 	max-width: 1200px;
+	text-align: center;
+}
+
+.config-box {
+	display: inline-flex;
+	align-items: stretch;
+	flex-direction: column;
+	gap: 1em;
+	margin: 0 auto 2em;
+
+	&__item {
+		@include flexCenter(stretch, flex-start);
+		gap: 0.5em;
+	}
+}
+
+.input {
+	padding: 0.5em 1em;
+	flex: 1;
+	font-size: 1.4rem;
 }
 
 .images-box {
@@ -40,6 +60,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	height: 460px;
+	width: 100%;
 	border-radius: 1em;
 	background-color: $white;
 	box-shadow: 0 2px 5px 0 $boxShadow;
@@ -85,25 +106,27 @@ sup {
 
 .error {
 	display: none;
-	justify-content: center;
-	align-items: center;
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: 100%;
+	right: 0;
 	padding: 1em;
-	font-size: 2rem;
-	background-color: $bgColor;
+	text-align: center;
+	color: $errorColor;
+	font-weight: bold;
 	z-index: 2;
 }
 
-.error--display-flex {
-	display: flex;
+.error--display-block {
+	display: block;
 }
 
 @media (min-width: 414px) {
 	body {
+		font-size: 1.6rem;
+	}
+
+	.input {
 		font-size: 1.6rem;
 	}
 
@@ -119,6 +142,10 @@ sup {
 
 @media (min-width: 768px) {
 	body {
+		font-size: 1.8rem;
+	}
+
+	.input {
 		font-size: 1.8rem;
 	}
 

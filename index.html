@@ -11,10 +11,28 @@
 </head>
 
 <body>
-    <div class="error">
-        <p class="error__text"></p>
-    </div>
     <div class="wrapper">
+        <div class="error">
+            <p class="error__text"></p>
+        </div>
+        <div class="config-box">
+            <div class="config-box__item">
+                <label for="apiKey">Access Key:</label>
+                <input value="" type="text" id="api-key" name="api-key" class="input">
+            </div>
+            <div class="config-box__item">
+                <label for="api-order-by">Order by:</label>
+                <select id="api-order-by" class="input">
+                    <option value="latest">Latest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="popular">Popular</option>
+                </select>
+            </div>
+            <div class="config-box__item">
+                <label for="api-page-number">Page number:</label>
+                <input value="1" type="number" id="api-page-number" name="api-page-number" min="1" class="input">
+            </div>
+        </div>
         <div class="images-box">
             <div class="photo">
                 <div class="photo__bg"></div>

@@ -33,6 +33,43 @@ body {
   padding: 4em 1em;
   width: 100%;
   max-width: 1200px;
+  text-align: center;
+}
+
+.config-box {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+  margin: 0 auto 2em;
+}
+
+.config-box__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 0.5em;
+}
+
+.input {
+  padding: 0.5em 1em;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 1.4rem;
 }
 
 .images-box {
@@ -63,6 +100,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 460px;
+  width: 100%;
   border-radius: 1em;
   background-color: #ffffff;
   -webkit-box-shadow: 0 2px 5px 0 #333333;
@@ -124,31 +162,26 @@ sup {
 
 .error {
   display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
   padding: 1em;
-  font-size: 2rem;
-  background-color: #dedede;
+  text-align: center;
+  color: #c92828;
+  font-weight: bold;
   z-index: 2;
 }
 
-.error--display-flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.error--display-block {
+  display: block;
 }
 
 @media (min-width: 414px) {
   body {
+    font-size: 1.6rem;
+  }
+  .input {
     font-size: 1.6rem;
   }
   .photo {
@@ -162,6 +195,9 @@ sup {
 
 @media (min-width: 768px) {
   body {
+    font-size: 1.8rem;
+  }
+  .input {
     font-size: 1.8rem;
   }
   .images-box {

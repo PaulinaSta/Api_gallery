@@ -5,26 +5,28 @@ const authors = document.querySelectorAll('.photo__author-link')
 const date = document.querySelectorAll('.photo__date-text')
 const error = document.querySelector('.error')
 const errorTxt = document.querySelector('.error__text')
+const apiKeyInput = document.querySelector('#api-key')
+const orderBySelect = document.querySelector('#api-order-by')
+const pageNumberInput = document.querySelector('#api-page-number')
 
 const getPhotos = () => {
 	const apiLink = 'https://api.unsplash.com/photos?'
 	const apiClientParam = 'client_id='
-	const apiKey = 'YOUR_API_KEY'
+	const apiKey = apiKeyInput.value
 	const pageApiParam = '&page='
-	const page = 2
+	const page = pageNumberInput.value
 	const perPageApiParam = '&per_page='
 	const perPage = 4
 	const orderByApiParam = '&order_by='
-	const orderBy = 'latest'
+	const orderBy = orderBySelect.value
 	const apiUrl =
 		apiLink + apiClientParam + apiKey + pageApiParam + page + perPageApiParam + perPage + orderByApiParam + orderBy
 
 	axios
 		.get(apiUrl)
 		.then(res => {
-			error.classList.remove('error--display-flex')
+			error.classList.remove('error--display-block')
 			const photoData = res.data
-			console.log(photoData)
 
 			descriptions.forEach((description, i) => {
 				description.textContent = photoData[i].description || 'No description available'
@@ -49,10 +51,13 @@ const getPhotos = () => {
 			})
 		})
 		.catch(err => {
-			error.classList.add('error--display-flex')
+			error.classList.add('error--display-block')
 			let statusCode = err.message
 			errorTxt.textContent = statusCode
 		})
 }
 
 window.addEventListener('DOMContentLoaded', getPhotos)
+apiKeyInput.addEventListener('change', getPhotos)
+orderBySelect.addEventListener('change', getPhotos)
+pageNumberInput.addEventListener('change', getPhotos)
