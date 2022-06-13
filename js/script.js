@@ -29,7 +29,7 @@ const getPhotos = () => {
 			console.log(res)
 
 			descriptions.forEach((description, i) => {
-				description.textContent = photoData[i].description || 'No description available'
+				description.textContent = photoData[i].description || 'git '
 			})
 
 			images.forEach((image, i) => {
