@@ -7,14 +7,13 @@ const error = document.querySelector('.error')
 const errorTxt = document.querySelector('.error__text')
 const apiKeyInput = document.querySelector('#api-key')
 const orderBySelect = document.querySelector('#api-order-by')
-const pageNumberInput = document.querySelector('#api-page-number')
 
 const getPhotos = () => {
 	const apiLink = 'https://api.unsplash.com/photos?'
 	const apiClientParam = 'client_id='
 	const apiKey = apiKeyInput.value
 	const pageApiParam = '&page='
-	const page = pageNumberInput.value
+	const page = 1
 	const perPageApiParam = '&per_page='
 	const perPage = 4
 	const orderByApiParam = '&order_by='
@@ -27,6 +26,7 @@ const getPhotos = () => {
 		.then(res => {
 			error.classList.remove('error--display-block')
 			const photoData = res.data
+			console.log(res)
 
 			descriptions.forEach((description, i) => {
 				description.textContent = photoData[i].description || 'No description available'
@@ -60,4 +60,3 @@ const getPhotos = () => {
 window.addEventListener('DOMContentLoaded', getPhotos)
 apiKeyInput.addEventListener('change', getPhotos)
 orderBySelect.addEventListener('change', getPhotos)
-pageNumberInput.addEventListener('change', getPhotos)
